@@ -1,11 +1,12 @@
 #pragma once
 #include <raylib.h>
+#include "Sprite.hpp"
 
-class Padle
+class Padle : public Sprite
 {
     public:
-        Padle();
-
+        Padle() = default; 
+        Padle(Vector2 initialPosition);
         void Draw();
         void Update(float dt);
         Vector2 GetPosition();

@@ -3,7 +3,6 @@
 #include "GameConfig.hpp"
 #include "Padle.hpp"
 Vector2 initialPosition = {GameConfig::SCREEN_WIDTH / 2, GameConfig::SCREEN_HEIGHT / 2};
-Padle padle;
 Ball::Ball()
 {
     position = initialPosition;
@@ -29,9 +28,9 @@ void Ball::Update(Padle padle, float dt)
     
 }
 
-bool Ball::CheckCollisionPlayer(Padle padlePlayer)
+bool Ball::CheckCollisionPlayer(Padle padle)
 {
-    bool IsCollide = CheckCollisionCircleRec(position, radius, padlePlayer.GetCollisionAABB());
+    bool IsCollide = CheckCollisionCircleRec(position, radius, padle.GetCollisionAABB());
     return IsCollide;
 }
 

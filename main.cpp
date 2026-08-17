@@ -8,7 +8,7 @@ int main()
     InitWindow(GameConfig::SCREEN_WIDTH, GameConfig::SCREEN_HEIGHT, "Pong Game Raylib C++");
     SetTargetFPS(200);
     Ball bolas;
-    Padle padlePlayer;
+    Padle padlePlayer(padlePlayer.GetPosition());
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
         //INPUT

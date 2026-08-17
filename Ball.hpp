@@ -4,8 +4,8 @@
 class Ball
 {
     public:
+         
         Ball();
-        
         
         void Update(Padle padle, float dt);
         void Draw();
@@ -17,6 +17,6 @@ class Ball
             float bSpeed;
             int speed_x, speed_y;
             int radius;
-            bool CheckCollisionPlayer(Padle padlePlayer);
+            bool CheckCollisionPlayer(Padle padle);
             void Collisions_Section(Padle padle);
 };
