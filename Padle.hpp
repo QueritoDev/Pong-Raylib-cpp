@@ -1,22 +1,21 @@
 #pragma once
 #include <raylib.h>
-#include "Sprite.hpp"
 
-class Padle : public Sprite
+class Padle
 {
     public:
-        Padle() = default; 
         Padle(Vector2 initialPosition);
+
         void Draw();
         void Update(float dt);
         Vector2 GetPosition();
         Rectangle GetCollisionAABB();
 
     private:
-        void Input(float dt);
-        Vector2 initialPosition;
         Vector2 position;
+        Vector2 direction;
+        float speed;
         int padle_width, padle_height;
-        int speed_y;
+        void Input(float dt);
         void Collisions();
 };

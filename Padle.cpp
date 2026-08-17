@@ -1,28 +1,21 @@
 #include <raylib.h>
-#include "Sprite.hpp"
+#include <raymath.h>
 #include "Padle.hpp"
 #include "GameConfig.hpp"
 
-float initialSpeed = 300.0f;
-Padle::Padle(Vector2 initialPosition) : Sprite(initialPosition, initialSpeed)
+
+Padle::Padle(Vector2 initialPosition)
 {
+    position = initialPosition;
+    direction = {0.0f,0.0f};
     padle_width = 25;
     padle_height = 120;
-    speed_y = initialSpeed;
-    initialPosition = GetPosition();
-    position = initialPosition;
+    speed = 600.0f;
 }
-
-void Padle::Input(float dt)
-{
-    direction.y = (IsKeyDown(KEY_S) ? 1:0) - (IsKeyDown(KEY_W) ? 1:0);
-}
-
-
 
 void Padle::Update(float dt)
 {
-    if(position.y >= 0)
+    if(position.y <= 0)
     {
         position.y = 0; 
     }
@@ -31,7 +24,14 @@ void Padle::Update(float dt)
     {
         position.y = GetScreenHeight() - padle_height; 
     }
-    Input(dt);
+
+    direction.y = (IsKeyDown(KEY_S) ? 1:0) - (IsKeyDown(KEY_W) ? 1:0);
+    position.y += direction.y * speed * dt;
+}
+
+void Padle::Input(float dt)
+{
+   
 }
 
 void Padle::Draw()

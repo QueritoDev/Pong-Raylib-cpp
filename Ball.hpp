@@ -3,20 +3,20 @@
 #include "Padle.hpp"
 class Ball
 {
-    public:
-         
-        Ball();
+    private:     
+        Padle& padlePlayer;
+        Padle& padleRight;    
         
-        void Update(Padle padle, float dt);
+        Vector2 position;
+        float bSpeed;
+        float speed_x, speed_y;
+        int radius;
+        bool CheckCollisionPlayer(Padle padle);
+        void Collisions_Section(Padle padle);
+    
+    public:
+        Ball(Padle& padlePlayer, Padle& padleRight);        
+        void Update(float dt);
         void Draw();
         Vector2 GetPosition();
-        
-    
-        private:
-            Vector2 position;
-            float bSpeed;
-            int speed_x, speed_y;
-            int radius;
-            bool CheckCollisionPlayer(Padle padle);
-            void Collisions_Section(Padle padle);
 };
